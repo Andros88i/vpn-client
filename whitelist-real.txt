@@ -1,0 +1,30 @@
+# ============================================
+# WHITELIST REAL - REDES PERMITIDAS
+# ============================================
+
+# Redes locales (NUNCA pasar por VPN)
+IP:192.168.0.0/16
+IP:10.0.0.0/8
+IP:172.16.0.0/12
+
+# Router/DNS local
+IP:192.168.1.1
+IP:10.0.0.1
+
+# WiFi de casa (cambia 'MiCasa' por tu SSID REAL)
+WIFI:MiCasa
+WIFI:CasaSegura
+
+# WiFi del trabajo
+WIFI:Oficina
+WIFI:Work-Secure
+
+# Dispositivos locales
+# IP:192.168.1.100  # Mi PC
+# IP:192.168.1.101  # Mi laptop
+
+# Apps del sistema que NO usarán VPN
+APP:com.android.phone
+APP:com.android.mms
+APP:com.android.systemui
+APP:android.process.acore
