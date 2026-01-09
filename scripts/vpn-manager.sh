@@ -615,14 +615,13 @@ monitor_connection() {
             sleep "$check_interval"
         else
             ((consecutive_failures++))
-            error_message "Falló check de conexión ($consecutive_failures/$max_failures)" 
-            "⚠️  Fallo $consecutive_failures/$max_failuries"
-            
-            if [[ "$consecutive_failures" -ge "$max_failures" ]]; then
-                error_message "Reintentando conexión..." "🔁 Reconectando..."
-                reconnect_vpn
-                consecutive_failures=0
-            fi
+            error_message "Falló check de conexión ($consecutive_failures/$max_failures)" "⚠️  Fallo $consecutive_failures/$max_failures"
+
+        if [[ "$consecutive_failures" -ge "$max_failures" ]]; then
+             error_message "Reintentando conexión..." "🔁 Reconectando..."
+             reconnect_vpn
+             consecutive_failures=0
+         fi
             
             sleep 10
         fi
@@ -919,5 +918,6 @@ trap cleanup_exit SIGINT SIGTERM
 
 # Ejecutar
 main "$@"
+
 
 
