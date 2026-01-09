@@ -712,6 +712,8 @@ echo -e "${LRED}      [+] PROYECTO: VPN MANAGER ADVANCED - TERMUX${NC}"
 echo -e "${LRED}      [+] ESTADO  : ${GREEN}ACTIVO${NC}"
 echo -e "${LRED}=================================================${NC}"
 
+}
+
 show_menu() {
     while true; do
         show_banner
@@ -917,4 +919,5 @@ trap cleanup_exit SIGINT SIGTERM
 
 # Ejecutar
 main "$@"
+
 
