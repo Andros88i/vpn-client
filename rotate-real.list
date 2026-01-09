@@ -1,0 +1,18 @@
+# ============================================
+# CONFIGURACIÓN REAL - MI VPN
+# ============================================
+
+# Servidor principal (Mullvad)
+wireguard:/data/data/com.termux/files/home/.vpn-client/configs/mullvad-us.conf:1:USA-NY-Mullvad
+
+# Backup 1 (Windscribe)
+ovpn:/data/data/com.termux/files/home/.vpn-client/configs/windscribe-nl.ovpn:2:NL-Windscribe
+
+# Backup 2 (IVPN)
+wireguard:/data/data/com.termux/files/home/.vpn-client/configs/ivpn-de.conf:3:DE-IVPN
+
+# Backup 3 (ProtonVPN)
+ovpn:/data/data/com.termux/files/home/.vpn-client/configs/proton-jp.ovpn:4:JP-Proton
+
+# Servidor rápido (para streaming)
+wireguard:/data/data/com.termux/files/home/.vpn-client/configs/pia-ca.conf:5:CA-PIA-Fast
