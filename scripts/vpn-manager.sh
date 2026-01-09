@@ -28,6 +28,11 @@ VPN_CONNECTED=false
 CURRENT_PROTOCOL=""
 CURRENT_SERVER=""
 
+# =========================================================
+# CONFIGURACIÓN
+# =========================================================
+IMG="/data/data/com.termux/files/home/storage/pictures/Anonymus.png"
+
 # Colores
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -692,21 +697,20 @@ backup_logs() {
 # ==============================================================================
 
 show_banner() {
+    
     clear
-    echo -e "${CYAN}"
-    echo "╔══════════════════════════════════════════════════════╗"
-    echo "║      🛡️  VPN CLIENT MANAGER - TERMUX                ║"
-    echo "║           (Sin Root - Sistema Avanzado)              ║"
-    echo "╠══════════════════════════════════════════════════════╣"
-    echo "║                                                      ║"
-    echo -e "║  ${WHITE}Estado:${NC} $([[ $VPN_CONNECTED == true ]] && echo -e \"${GREEN}CONECTADO${NC}\" || echo -e \"${RED}DESCONECTADO${NC}\")"
-    echo -e "║  ${WHITE}Protocolo:${NC} ${CURRENT_PROTOCOL:-N/A}"
-    echo -e "║  ${WHITE}Servidor:${NC} ${CURRENT_SERVER:-N/A}"
-    echo -e "║  ${WHITE}Kill Switch:${NC} $([[ $KILL_SWITCH_ACTIVE == true ]] && echo -e \"${GREEN}ACTIVO${NC}\" || echo -e \"${RED}INACTIVO${NC}\")"
-    echo "║                                                      ║"
-    echo "╠══════════════════════════════════════════════════════╣"
-    echo -e "${CYAN}"
-}
+
+if command -v chafa >/dev/null 2>&1 && [ -f "$IMG" ]; then
+    chafa --center=on --size=60x30 "$IMG"
+else
+    echo -e "${RED}[!] No se pudo cargar la imagen o chafa no está instalado${NC}"
+fi
+
+echo
+echo -e "${LRED}      [+] CREADOR : Andro_Os${NC}"
+echo -e "${LRED}      [+] PROYECTO: VPN MANAGER ADVANCED - TERMUX${NC}"
+echo -e "${LRED}      [+] ESTADO  : ${GREEN}ACTIVO${NC}"
+echo -e "${LRED}=================================================${NC}"
 
 show_menu() {
     while true; do
@@ -913,3 +917,4 @@ trap cleanup_exit SIGINT SIGTERM
 
 # Ejecutar
 main "$@"
+
